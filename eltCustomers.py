@@ -25,3 +25,5 @@ def etl_process():
     engine.dispose()
     
 etl_process()
+
+#Customer table 
