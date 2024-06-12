@@ -1,0 +1,21 @@
+SELECT 
+	sC."companyName" AS company,
+	sC."contactName" AS customer_name,
+	sC."country" AS country,
+	od.quantity,
+	(od.quantity * od."unitPrice") AS orderValue
+FROM 
+	{{ ref ( 'stgCustomers' ) }} sC
+JOIN
+	{{ ref ('stgOrders' ) }} o
+ON
+	sC."customerId" = o."customerId"
+JOIN
+	{{ ref ( 'stgOrderDetails') }} od
+ON
+	o."orderId" = od."orderID"
+GROUP BY 
+	sC."companyName", sC."contactName", od.quantity, od."unitPrice", country
+ORDER BY 
+	5 DESC
+

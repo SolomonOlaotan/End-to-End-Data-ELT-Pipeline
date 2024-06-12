@@ -1,0 +1,12 @@
+algora_project:
+  outputs:
+    dev:
+      dbname: northwind_raw
+      host: localhost
+      pass: '0303'
+      port: 5432
+      schema: staging
+      threads: 4
+      type: postgres
+      user: postgres
+  target: dev
